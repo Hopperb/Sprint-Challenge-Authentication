@@ -5,28 +5,18 @@ const Schema = mongoose.Schema;
 const SALT_ROUNDS = 11;
 
 const UserSchema = Schema({
-    username: {
-      type: String,
-      required: true,
-      unique: true,
-      lowercase: true
+   username: {
+    type: String, 
+    required: true,
+    unique: true,
+    lowercase: true
     },
-    passwrord: {
-      type: String,
-      required: true,
-      minlength: 4,
-      validate: checkPasswordStrength,
-      msg: 'password too weak, do better.'
-    },
-    createdAt: {
-      date: Date,
-      createdAt: Date.now()
+   password: {
+    type: String,
+    required: true 
     }
 });
 
-function checkPasswordStrength(){
-  return passwrord.length > 12;
-}
 
 UserSchema.pre('save', function(next) {
   // https://github.com/kelektiv/node.bcrypt.js#usage
@@ -45,12 +35,12 @@ UserSchema.pre('save', function(next) {
 
 });
 
-UserSchema.methods.checkPassword = function(passwordClear) {
+UserSchema.methods.checkPassword = function(plaintextPW) {
   // https://github.com/kelektiv/node.bcrypt.js#usage
   // Fill this method in with the Proper password comparing, bcrypt.compare()
   // Your controller will be responsible for sending the information here for password comparison
   // Once you have the user, you'll need to pass the encrypted pw and the plaintext pw to the compare function
- return bcrypt.compare(passwordClear, this.passwrord)
+ return bcrypt.compare(plaintextPW, this.passwrord)
  };
 
 module.exports = mongoose.model('User', UserSchema);

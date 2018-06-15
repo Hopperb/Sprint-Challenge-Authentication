@@ -3,11 +3,13 @@ const bcrypt = require('bcrypt');
 
 const createUser = (req, res) => {
   const { username, password } = req.body;
-  User
-    .create({username, password})
-    .then(user => 
-      res.status(201).json({data: user}))
-    .catch(err => res.status(500).json({messageError: err}))
+    User.create(req.body)
+      .then(user => {
+        res.status(201).json({ username: user.username });
+      })
+      .catch(err => {
+        res.status(500).json(err)
+      });
 };
 
 module.exports = {
