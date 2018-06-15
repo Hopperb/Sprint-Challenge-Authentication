@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route} from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import Login from './components/Login'
@@ -13,11 +13,13 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <Route path="/login" component={Login}></Route>
-        <Route path="/signup" component={SignUp}></Route>
-        <Route path="/jokes" component={Jokes}></Route>
+       
       </div>
     );
   }
 }
 
 export default App;
+
+// <Route path="/signup" component={SignUp}></Route>
+// <Route path="/jokes" component={Jokes}></Route>

@@ -44,7 +44,7 @@ class Login extends Component{
                     value={this.password}
                     name="password"
                 />
-                <button onSubmit={this.signUp}></button>
+                <button onSubmit={this.signUp}>Submit</button>
                 </form>
             </div>
         )
