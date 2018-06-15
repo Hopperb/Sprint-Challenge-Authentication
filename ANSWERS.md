@@ -5,9 +5,9 @@
 
     -Sessions in express are place to hold datat and you can acess the data by requests. Each time there is visit then you recived a uniqes session ie cookies. Sessions also helps manage the state of web APIs
     
-    -bcrypt hashes passwords and sends a long string and its up to the User to provide to make request.
+    -bcrypt hashes passwords and sends a long string and its up to the User to provide to make request. Great for comparing hash passwords as well.
 
-    -jwt are for users to provide when making a request
+    -jwt are for users to provide when making a request, also alternative for cookies sessions
 
 2.  What does bcrypt do in order to prevent attacks?
 
