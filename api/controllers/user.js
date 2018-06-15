@@ -5,7 +5,7 @@ const createUser = (req, res) => {
   const {username, password} = req.body;
     User.create(req.body)
       .then(user => {
-        res.status(201).json({ username });
+        res.status(201).json({ user: user.username });
       })
       .catch(err => {
         res.status(500).json(err)
