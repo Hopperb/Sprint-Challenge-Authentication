@@ -22,8 +22,7 @@ UserSchema.pre('save', function(next) {
   // https://github.com/kelektiv/node.bcrypt.js#usage
   // Fill this middleware in with the Proper password encrypting, bcrypt.hash()
   // if there is an error here you'll need to handle it by calling next(err);
-  // Once the password is encrypted, call next() so that your userController and create a user
-  return bcrypt
+  // Once the password is encrypted, call next() so that your userController and create a use
   return bcrypt.hash(this.password, SALT_ROUNDS)
    .then(hash => {
      this.password = hash;
@@ -43,7 +42,7 @@ UserSchema.methods.checkPassword = function(plaintextPW, callBack) {
   bcrypt.compare(plaintextPW, this.passwrord, function() {
     }).then((bool) => {
       if (bool) return callBack(null, bool)
-      else return callBack(null, bool)
+      return callBack(null, bool)
     })
  };
 
